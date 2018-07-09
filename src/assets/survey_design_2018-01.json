@@ -1,0 +1,217 @@
+{
+  "title": "Sharing Cities testenkät",
+  "showProgressBar": "top",
+  "pages": [
+    {
+      "name": "page1",
+      "elements": [
+        {
+          "type": "rating",
+          "title": {
+            "sv": "Hur ligger vi till?",
+            "default": "How satisfied are you with the Product?"
+          },
+          "name": "satisfaction",
+          "minRateDescription": {
+            "sv": "Botten",
+            "default": "Not Satisfied"
+          },
+          "maxRateDescription": {
+            "sv": "Toppen",
+            "default": "Completely satisfied"
+          }
+        },
+        {
+          "visibleIf": "{satisfaction} > 3",
+          "visible": false,
+          "type": "radiogroup",
+          "title": {
+            "sv": "Så vi är på rätt väg?"
+          },
+          "name": "satisfaction_followup",
+          "choices": [
+            {
+              "value": "yes",
+              "text": {
+                "sv": "Jajamensan!"
+              }
+            },
+            {
+              "value": "maybe",
+              "text": {
+                "sv": "Vi får väl se..."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "page2",
+      "elements": [
+        {
+          "type": "panel",
+          "title": {
+            "sv": "Lite om dig"
+          },
+          "name": "personal",
+          "elements": [
+            {
+              "type": "checkbox",
+              "title": {
+                "sv": "Reser du regelbundet till någon/några av dessa platser?"
+              },
+              "name": "visited_places",
+              "choices": [
+                {
+                  "value": "denmark",
+                  "text": {
+                    "sv": "Danmark"
+                  }
+                },
+                {
+                  "value": "other_eu_country",
+                  "text": {
+                    "sv": "Något annat EU-land"
+                  }
+                },
+                {
+                  "value": "outside_europe",
+                  "text": {
+                    "sv": "Utanför Europa"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "title": {
+                "sv": "Vilken är din favoritfärg?"
+              },
+              "name": "favorite_color",
+              "inputType": "color"
+            },
+            {
+              "type": "radiogroup",
+              "title": {
+                "sv": "Hur intresserad är du av att pröva nya saker?",
+                "default": "How interested are you in trying new things?"
+              },
+              "name": "try_new_things",
+              "choices": [
+                "Vill helst ha det som vanligt",
+                "Beror på vad det är",
+                "Aldrig samma sak två gånger!"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "page3",
+      "elements": [
+        {
+          "type": "panel",
+          "title": {
+            "sv": "Planering"
+          },
+          "name": "planning",
+          "elements": [
+            {
+              "type": "matrix",
+              "title": "Välj högst prioriterade aktivitet",
+              "rows": [
+                {
+                  "value": "funding",
+                  "text": "Vad är viktigast under finansiseringsfasen?"
+                },
+                {
+                  "value": "study",
+                  "text": "Vad är viktigast för en förstudie?"
+                },
+                {
+                  "value": "prototyp",
+                  "text": "Vad är viktigast vid prototyputveckling?"
+                }
+              ],
+              "name": "prioritized_activity",
+              "columns": [
+                {
+                  "value": 1,
+                  "text": "Överdrifter"
+                },
+                {
+                  "value": 2,
+                  "text": "Fusk"
+                },
+                {
+                  "value": 3,
+                  "text": "Personalfest"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "page4",
+      "elements": [
+        {
+          "type": "panel",
+          "title": {
+            "sv": "Uppföljning"
+          },
+          "name": "exit",
+          "elements": [
+            {
+              "type": "comment",
+              "title": {
+                "sv": "Finns det något du skulle vilja tillägga?"
+              },
+              "name": "comments"
+            },
+            {
+              "type": "radiogroup",
+              "title": {
+                "sv": "Hur vill du skicka in dina svar?"
+              },
+              "name": "want_followup",
+              "isRequired": true,
+              "choices": [
+                {
+                  "value": true,
+                  "text": {
+                    "sv": "ange din unika pseudonym"
+                  }
+                },
+                {
+                  "value": false,
+                  "text": {
+                    "sv": "anonymt"
+                  }
+                }
+              ]
+            },
+            {
+              "visibleIf": "{want_followup} = true",
+              "visible": false,
+              "type": "text",
+              "title": {
+                "sv": "Ange din pseudonym"
+              },
+              "startWithNewLine": false,
+              "placeHolder": {
+                "sv": "Ange din pseudonym"
+              },
+              "name": "pseudonym",
+              "isRequired": true,
+              "defaultValue": "anonymous"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
